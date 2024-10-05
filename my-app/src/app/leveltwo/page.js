@@ -39,8 +39,8 @@ function Page() {
   };
 
   return (
-    <div className="flex flex-col">
-      <LevelTwoImages />
+    <div className="flex flex-col border-2 border-green-500">
+      <LevelTwoImages className=""/>
       <button onClick={handleSubmit}>Submit</button>
       <LevelTwoWords words={words} onCorrectChange={handleCorrectChange} />
       <div>
