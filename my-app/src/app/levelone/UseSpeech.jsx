@@ -28,7 +28,6 @@ const useSpeech = (options) => {
       const lastWord = words[words.length - 1]; 
       
       setLatestWord(lastWord); // Store the latest word
-      console.log("Latest word:", lastWord); // Log only the latest word
     }
 
     rec.onerror = (event) => {
