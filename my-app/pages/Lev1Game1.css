@@ -1,0 +1,54 @@
+.background-container {
+    background: url('../public/images/letterABg.png') no-repeat center center fixed;
+    background-size: cover;
+    width: 98vw;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.gold-circle {
+    position: absolute; /* Absolutely position the gold circle */
+    top: 15%; /* Center vertically */
+    left: 40%; /* Center horizontally */
+    z-index: 1; /* Ensure it stays behind the letter */
+    animation: bounce 2s infinite;
+}
+
+.letter-A {
+    position: absolute; /* Absolutely position the letter A */
+    top: 22%; /* Center vertically */
+    left: 43%; /* Center horizontally */
+    z-index: 2; /* Ensure it stays on top of the gold circle */
+    animation: bounce 2s infinite;
+    
+}
+
+@keyframes bounce {
+    0%, 100% {
+      transform: translateY(0); /* Starting and ending at the original position */
+    }
+    50% {
+      transform: translateY(-15px); /* Move up by 15px at the midpoint */
+    }
+}
+
+.gold-circle1 {
+    position: absolute; /* Absolutely position the gold circle */
+    top: 77%; /* Center vertically */
+    left: 20%; /* Center horizontally */
+    z-index: 1; /* Ensure it stays behind the letter */
+    opacity: 0.94
+}
+
+.gold-circle2 {
+    position: absolute; /* Absolutely position the gold circle */
+    top: 77%; /* Center vertically */
+    left: 65%; /* Center horizontally */
+    z-index: 1; /* Ensure it stays behind the letter */
+    opacity: 0.94
+}

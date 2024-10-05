@@ -1,0 +1,32 @@
+.play-sound-button {
+    width: 100px;              /* Set the width */
+    height: 100px;             /* Set the height */
+    background-color: transparent;   /* Set the background to white */
+    border: none;              /* Remove any default borders */
+    border-radius: 50px;       /* Make the button round */
+    cursor: pointer;           /* Show pointer to indicate clickability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+    font-size: 18px;           /* Adjust font size if there's text inside */
+    color: black;              /* Set text color */
+    transition: transform 0.2s ease; /* Slight animation for hover */
+    position: relative;        /* Add relative positioning */
+    margin-top: 650px; 
+    margin-right: 2px;
+    z-index: 200;              /* Ensure it appears above other elements */
+}
+.pause-sound-button {
+    width: 100px;              /* Set the width */
+    height: 100px;             /* Set the height */
+    background-color: transparent;   /* Set the background to white */
+    border: none;              /* Remove any default borders */
+    border-radius: 50px;       /* Make the button round */
+    cursor: pointer;           /* Show pointer to indicate clickability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+    font-size: 18px;           /* Adjust font size if there's text inside */
+    color: black;              /* Set text color */
+    transition: transform 0.2s ease; /* Slight animation for hover */
+    position: relative;        /* Add relative positioning */
+    margin-bottom: 30px; 
+    margin-left: 50px;
+    z-index: 200;              /* Ensure it appears above other elements */
+}

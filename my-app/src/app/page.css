@@ -1,0 +1,105 @@
+.background-container {
+  background-image: url('./images/bg2.png');
+  background-size: cover; /* Ensures the background covers the entire container */
+  background-position: center; /* Centers the background image */
+  position: relative; /* To enable absolute positioning for child elements */
+  width: 100vw; /* Almost full width of the viewport */
+  height: 96vh; /* Full height of the viewport */
+  z-index: 1; /* Set the stacking context for child elements */
+}
+
+.background-container > div {
+  position: absolute; /* Position the leaves on top of the background */
+  z-index: 2; /* Ensure the leaves are on top */
+  top: 0; /* Adjust the position as needed */
+  left: 0;
+}
+
+.level1-container {
+  position: absolute; /* Position the level1 image */
+  z-index: 3; /* Ensure it appears above the leaves */
+  margin-top: 530px; /* Initial top position */
+  margin-left: 610px; /* Initial left position */
+  width: 120px; /* Define a width for the level1 image */
+  height: 220px; /* Define a height for the level1 image */
+  
+  /* Add animation */
+  animation: bounce 2s infinite; /* 'bounce' animation, 2 seconds duration, loops infinitely */
+}
+
+.level2-container {
+  position: absolute; /* Position the level1 image */
+  z-index: 3; /* Ensure it appears above the leaves */
+  margin-top: 380px; /* Initial top position */
+  margin-left: 580px; /* Initial left position */
+  width: 120px; /* Define a width for the level1 image */
+  height: 220px; /* Define a height for the level1 image */
+  
+  /* Add animation */
+  animation: bounce 2s infinite; /* 'bounce' animation, 2 seconds duration, loops infinitely */
+}
+
+.level3-container {
+  position: absolute; /* Position the level1 image */
+  z-index: 3; /* Ensure it appears above the leaves */
+  margin-top: 380px; /* Initial top position */
+  margin-left: 770px; /* Initial left position */
+  width: 120px; /* Define a width for the level1 image */
+  height: 220px; /* Define a height for the level1 image */
+  
+  /* Add animation */
+  animation: bounce 2s infinite; /* 'bounce' animation, 2 seconds duration, loops infinitely */
+}
+.level4-container {
+  position: absolute; /* Position the level1 image */
+  z-index: 3; /* Ensure it appears above the leaves */
+  margin-top: 270px; /* Initial top position */
+  margin-left: 900px; /* Initial left position */
+  width: 120px; /* Define a width for the level1 image */
+  height: 220px; /* Define a height for the level1 image */
+  
+  /* Add animation */
+  animation: bounce 2s infinite; /* 'bounce' animation, 2 seconds duration, loops infinitely */
+}
+
+.level5-container {
+  position: absolute; /* Position the level1 image */
+  z-index: 3; /* Ensure it appears above the leaves */
+  margin-top: 253px; /* Initial top position */
+  margin-left: 710px; /* Initial left position */
+  width: 120px; /* Define a width for the level1 image */
+  height: 220px; /* Define a height for the level1 image */
+  
+  /* Add animation */
+  animation: bounce 2s infinite; /* 'bounce' animation, 2 seconds duration, loops infinitely */
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); /* Starting and ending at the original position */
+  }
+  50% {
+    transform: translateY(-15px); /* Move up by 15px at the midpoint */
+  }
+}
+
+.stop-bg-music-button {
+  background: rgba(9, 86, 27, 0.9);
+  border: none;
+  border-radius: 20px;
+  position: absolute;  /* or 'fixed' if you want it to stick to the viewport */
+  bottom: 20px;        /* Distance from the bottom of the container or viewport */
+  right: 40px;         /* Distance from the right of the container or viewport */
+  z-index: 1000;       /* Ensure it's on top of other elements */
+  cursor: pointer;
+}
+
+.play-bg-music-button {
+  background: rgba(9, 86, 27, 0.9);
+  border: none;
+  border-radius: 20px;
+  position: absolute;  /* or 'fixed' if you want it to stick to the viewport */
+  bottom: 80px;        /* Distance from the bottom of the container or viewport */
+  right: 40px;         /* Distance from the right of the container or viewport */
+  z-index: 1000;       /* Ensure it's on top of other elements */
+  cursor: pointer;
+}
