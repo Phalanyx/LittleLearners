@@ -1,0 +1,83 @@
+.background-container {
+  background-image: url('./images/bg.png');
+  background-size: cover; /* Ensures the background covers the entire container */
+  background-position: center; /* Centers the background image */
+  position: relative; /* To enable absolute positioning for child elements */
+  width: 100vw; /* Almost full width of the viewport */
+  height: 96vh; /* Full height of the viewport */
+  z-index: 1; /* Set the stacking context for child elements */
+}
+
+.background-container > div {
+  position: absolute; /* Position the leaves on top of the background */
+  z-index: 2; /* Ensure the leaves are on top */
+  top: 0; /* Adjust the position as needed */
+  left: 0;
+}
+
+.level1-container {
+  position: absolute; /* Position the level1 image */
+  z-index: 3; /* Ensure it appears above the leaves */
+  margin-top: 460px; /* Initial top position */
+  margin-left: 490px; /* Initial left position */
+  width: 120px; /* Define a width for the level1 image */
+  height: 220px; /* Define a height for the level1 image */
+  
+  /* Add animation */
+  animation: bounce 2s infinite; /* 'bounce' animation, 2 seconds duration, loops infinitely */
+}
+
+.level2-container {
+  position: absolute; /* Position the level1 image */
+  z-index: 3; /* Ensure it appears above the leaves */
+  margin-top: 480px; /* Initial top position */
+  margin-left: 670px; /* Initial left position */
+  width: 120px; /* Define a width for the level1 image */
+  height: 220px; /* Define a height for the level1 image */
+  
+  /* Add animation */
+  animation: bounce 2s infinite; /* 'bounce' animation, 2 seconds duration, loops infinitely */
+}
+
+.level3-container {
+  position: absolute; /* Position the level1 image */
+  z-index: 3; /* Ensure it appears above the leaves */
+  margin-top: 410px; /* Initial top position */
+  margin-left: 770px; /* Initial left position */
+  width: 120px; /* Define a width for the level1 image */
+  height: 220px; /* Define a height for the level1 image */
+  
+  /* Add animation */
+  animation: bounce 2s infinite; /* 'bounce' animation, 2 seconds duration, loops infinitely */
+}
+.level4-container {
+  position: absolute; /* Position the level1 image */
+  z-index: 3; /* Ensure it appears above the leaves */
+  margin-top: 340px; /* Initial top position */
+  margin-left: 900px; /* Initial left position */
+  width: 120px; /* Define a width for the level1 image */
+  height: 220px; /* Define a height for the level1 image */
+  
+  /* Add animation */
+  animation: bounce 2s infinite; /* 'bounce' animation, 2 seconds duration, loops infinitely */
+}
+
+.level5-container {
+  position: absolute; /* Position the level1 image */
+  z-index: 3; /* Ensure it appears above the leaves */
+  margin-top: 310px; /* Initial top position */
+  margin-left: 740px; /* Initial left position */
+  width: 120px; /* Define a width for the level1 image */
+  height: 220px; /* Define a height for the level1 image */
+  
+  /* Add animation */
+  animation: bounce 2s infinite; /* 'bounce' animation, 2 seconds duration, loops infinitely */
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); /* Starting and ending at the original position */
+  }
+  50% {
+    transform: translateY(-15px); /* Move up by 15px at the midpoint */
+  }
+}

@@ -1,0 +1,76 @@
+/* Popup.css */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Cover the full viewport width */
+    height: 100vh; /* Cover the full viewport height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top */
+}
+
+h1 {
+    font-size: 36px; /* Change 36px to your desired font size */
+    color: white; /* Example: changing the text color */
+    text-align: center; /* Example: center-aligning the text */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+.popup-content {
+    background-color: rgba(0, 0, 0, 0.85); /* Darker background with transparency */
+    color: white;
+    padding: 20px;
+    width: 500px; /* Fixed width for the popup */
+    height: 340px; /* Adjusted height for better image display */
+    border-radius: 12px; /* Rounded corners */
+    text-align: center;
+    border: 2px solid gold; /* Gold border */
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5); /* Gold shadow for a glowing effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+    position: relative; /* Position for the close button */
+}
+
+/* Close button styling */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px; /* Size of the close icon */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.close-button:hover {
+    color: gold; /* Change color on hover */
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 images per row */
+    gap: 10px; /* Space between images */
+    margin-top: 20px; /* Space above the grid */
+}
+
+.game-image {
+    position: relative; /* Position relative to position the number */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for images */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+.game-image:hover {
+    transform: scale(1.1); /* Slightly zoom in on hover */
+}
+
+.image-number {
+    position: absolute; /* Absolute positioning for the number */
+    top: 25px; /* Distance from the top of the image */
+    left: 40px; /* Distance from the left of the image */
+    color: white; /* Color of the number */
+    font-size: 24px; /* Size of the font */
+    font-weight: bold; /* Make the font bold */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Optional: add a shadow for better readability */
+}

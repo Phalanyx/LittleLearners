@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
 import useSpeech from './UseSpeech'
+
 const LevelOne = () => {
   const [textInput, setTextInput] = useState('hello');
-  const { start, stop, transcription, isListening } = useSpeech({continuous: true});
+  const { start, stop, latestWord, isListening } = useSpeech({ continuous: true });
 
   const startStopListening = () => {
     isListening ? stop() : start();
   }
 
+  // Console log the latest word spoken
+  if (latestWord) {
+    console.log("Latest word spoken:", latestWord);  // Log the latest word
+  }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', padding: '20px', boxSizing: 'border-box' }}>
@@ -27,7 +32,7 @@ const LevelOne = () => {
         {isListening ? 'Stop' : 'Start'}
       </button>
       <textarea
-        value={isListening ? textInput + (transcription.length ? (textInput.length ? ' ' : '') + transcription : '') : textInput}
+        value={isListening ? textInput + (latestWord ? (textInput.length ? ' ' : '') + latestWord : '') : textInput}
         disabled={isListening}
         onChange={(e) => setTextInput(e.target.value)}
         style={{ 
@@ -44,4 +49,4 @@ const LevelOne = () => {
   )
 }
 
-export default LevelOne
+export default LevelOne;

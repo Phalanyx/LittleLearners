@@ -1,0 +1,8 @@
+.background-container {
+    background: black;
+    background-size: cover; /* Ensures the background covers the entire container */
+    width: 100vw; /* Almost full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    z-index: 1; /* Set the stacking context for child elements */
+  }
+  
