@@ -39,8 +39,8 @@ async function GenerateBook(model, preferences) {
 
 }
 
-// Split the story content into pages (max 100 words per page)
-function SplitContent(story, max_words_per_page = 100) {
+// Split the story content into pages (max 50 words per page)
+function SplitContent(story, max_words_per_page = 50) {
 
     const words = story.split(' ');
     const pages = [];
@@ -74,10 +74,10 @@ async function GenerateContent(model, preferences) {
             const response = await model.chat.completions.create({
                 model: 'chatgpt-4o-latest',
                 messages: [
-                    { role: 'system', content: 'You are a creative story writer.' },
-                    { role: 'user', content: `Write a short children's story with no title based on the following requirements: ${outline} (Strictly between 200 and 400 words)` },
+                    { role: 'system', content: 'You are a creative story writer for young children.' },
+                    { role: 'user', content: `Write a short children's story with no title based on the following requirements: ${outline} (Strictly between 100 and 200 words)` },
                 ],
-                max_tokens: 500,
+                max_tokens: 250,
                 temperature: creativity,
             });
             const content = SplitContent(response.choices[0].message.content);
@@ -103,8 +103,8 @@ async function GenerateImages(model, pages_content) {
                 model: 'dall-e-3',
                 prompt: `Generate a cartoon image based on the following prompt: ${page_prompt}`,
                 size: '1024x1024',
-                num_images: 1,
-                n: 1,
+                quality: 'standard',
+                num_images: 1
             });
             return response.data[0].url;
         }
