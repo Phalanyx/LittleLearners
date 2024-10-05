@@ -1,0 +1,101 @@
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+form div {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+form button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+form button:hover {
+    border: 1px solid rgb(66, 36, 198);
+    color: black;
+}
+
+.book {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid rgb(44, 155, 192);
+}
+
+.page-content {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.page-content h2 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.page-image img {
+    display: block;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.book-controls button {
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.book-page.flip {
+    transform: rotateY(-180deg);
+}
+
+.book-page.reverse-flip {
+    transform: rotateY(0deg);
+}
+
+.spinner {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto;
+    padding: 50px;
+    border: 5px solid rgb(134, 128, 128);
+    border-radius: 50%;
+    border-left-color: rgb(66, 36, 198);
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+    0% { transform: rotate(0deg); }
+}
