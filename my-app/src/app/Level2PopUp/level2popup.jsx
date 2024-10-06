@@ -6,7 +6,7 @@ import Image from 'next/image';
 function Popup2({ onClose }) {
     // Function to handle image click
     const handleGameClick = (index) => {
-        if (index === 3) {
+        if (index === 0) {
             // Navigate to /Lev1Game1 when the first image is clicked
             window.location.href = 'leveltwo';
         }

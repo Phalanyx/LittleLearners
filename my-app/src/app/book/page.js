@@ -20,8 +20,19 @@ export default function Home() {
     creativity: 0,
   });
 
+  async function subtract() {
+    const response = await fetch('/api/subtractCoin', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: 1 }),
+    });
+  }
+
   // Fetch the book content
   const fetchBook = async () => {
+    subtract();
     try {
       const response = await fetch('/api/generateBook', {
         method: 'POST',

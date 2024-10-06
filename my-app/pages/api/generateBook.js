@@ -72,7 +72,7 @@ async function GenerateContent(model, preferences) {
     const generate_story = async() => {
         try {
             const response = await model.chat.completions.create({
-                model: 'chatgpt-4o-latest',
+                model: 'a',
                 messages: [
                     { role: 'system', content: `You are a children's story writer.` },
                     { role: 'user', content: `Write a short children's story (no title) based on the following requirements: ${outline} (Strictly between 100 and 200 words)` },
@@ -100,7 +100,7 @@ async function GenerateImages(model, pages_content) {
     const generate_image = async(page_prompt) => {
         try {
             const response = await model.images.generate({
-                model: 'dall-e-3',
+                model: 'b',
                 prompt: `Generate a cartoon image (no text) based on the following prompt: ${page_prompt}`,
                 size: '1024x1024',
                 quality: 'standard',
