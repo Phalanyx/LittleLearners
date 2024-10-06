@@ -12,4 +12,4 @@ export async function GET(req) {
         console.log(error);
         return NextResponse.json({'id': 1, 'amount': 0}, { status: 200 });
     }
-    }
+}

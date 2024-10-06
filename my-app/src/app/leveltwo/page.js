@@ -27,11 +27,24 @@ function Page() {
   const [isCorrect, setIsCorrect] = useState(false); // Track the correctness state
 
 
+  async function add() {
+    const response = await fetch('/api/addCoin', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: 1 }),
+    });
+    const data = await response.json()
+    console.log(data);
+}
+
   const handleSubmit = () => {
     if (isCorrect) {
       if (audioRef.current) {
         audioRef.current.play();
       }
+      add();
       var newWords = fetch('/api/leveltwoEndpoint')
         .then(response => response.json())
         .then(data => {
@@ -49,6 +62,8 @@ function Page() {
   const handleCorrectChange = (correct) => {
     setIsCorrect(correct); // Update the correctness state
   };
+
+
 
   return (
     <div className="page-container">
