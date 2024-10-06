@@ -7,6 +7,8 @@ import themes_data from './themes.json';
 import Image from 'next/image';
 import next_icon from './next_icon.png';
 import previous_icon from './previous_icon.png';
+import TopBar from '../Topbar';
+import '../Topbar.css'
 
 export default function Home() {
 
@@ -32,7 +34,7 @@ export default function Home() {
 
   // Fetch the book content
   const fetchBook = async () => {
-    subtract();
+
     try {
       const response = await fetch('/api/generateBook', {
         method: 'POST',
@@ -54,11 +56,34 @@ export default function Home() {
     }
   };
 
+  const fetchData = async () => {
+    try {
+      const response = await fetch('/api/coinEndpoint', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const result = await response.json();
+      if (result.amount < 5) {
+        alert("You don't have enough coins to generate a book");
+        return;
+      }
+      else {
+        setLoading(true); 
+        subtract();
+        fetchBook();
+      }
+    } 
+    catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
   // Handle the fetch book button click
   const handleFetchBook = () => {
-    setLoading(true); 
-    fetchBook();
-  };
+    fetchData();
+  }
 
   // Render the book content
   const renderBook = () => {
@@ -92,14 +117,17 @@ export default function Home() {
       <div className="book">
 
         <div className="book-controls">
-          <button onClick={handlePreviousPage} disabled={current_page === 1}>
+          <button className="control-button" onClick={handlePreviousPage} disabled={current_page === 1}>
             <Image src={previous_icon} width={25} height={25} />
           </button>
-          <button onClick={handleNextPage} disabled={current_page >= total_pages}>
+          <button className="control-button" onClick={handleNextPage} disabled={current_page >= total_pages}>
             <Image src={next_icon} width={25} height={25} />
           </button>
-          <button className="close-book-button" onClick={handleCloseBook}>
+          <button className="other-button" onClick={handleCloseBook}>
             Close Book
+          </button>
+          <button className="other-button">
+            Save Book
           </button>
         </div>  
       
@@ -110,7 +138,7 @@ export default function Home() {
           </div>
           {book_content[pageImageKey] && (
             <div className="page-image">
-              <img src={book_content[pageImageKey]}/>
+              <img src={book_content[pageImageKey]} width={512} height={512} />
             </div>
           )}
         </div>
@@ -188,6 +216,7 @@ export default function Home() {
   // Main HTML content
   return (
     <div>
+      <TopBar />
       {!book_content && (
         <div>
           {renderForm()}

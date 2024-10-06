@@ -26,6 +26,13 @@ export default async function handler(req, res) {
 async function GenerateBook(model, preferences) {
 
     const book = {};
+
+    // For Testing
+    // await new Promise(resolve => setTimeout(resolve, 2000));
+    // for (let i = 0; i < 5; i++) {
+    //     book[`Content ${i + 1}`] = `This is page ${i + 1}`;
+    //     book[`Image ${i + 1}`] = `https://via.placeholder.com/1024x1024.png`;
+    // }
     
     const pages_content = await GenerateContent(model, preferences);
     const pages_images = await GenerateImages(model, pages_content);
@@ -72,10 +79,10 @@ async function GenerateContent(model, preferences) {
     const generate_story = async() => {
         try {
             const response = await model.chat.completions.create({
-                model: 'a',
+                model: 'chatgpt-4o-latest',
                 messages: [
                     { role: 'system', content: `You are a children's story writer.` },
-                    { role: 'user', content: `Write a short children's story (no title) based on the following requirements: ${outline} (Strictly between 100 and 200 words)` },
+                    { role: 'user', content: `Write a short children's story (with no title) based on the following requirements: ${outline} (Strictly between 100 and 200 words)` },
                 ],
                 max_tokens: 250,
                 temperature: creativity,
@@ -100,8 +107,8 @@ async function GenerateImages(model, pages_content) {
     const generate_image = async(page_prompt) => {
         try {
             const response = await model.images.generate({
-                model: 'b',
-                prompt: `Generate a cartoon image (no text) based on the following prompt: ${page_prompt}`,
+                model: 'dall-e-3',
+                prompt: `You are a famous artist for children. Draw a cartoon image based on the following prompt: "${page_prompt}"`,
                 size: '1024x1024',
                 quality: 'standard',
                 num_images: 1

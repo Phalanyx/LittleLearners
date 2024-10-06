@@ -33,7 +33,7 @@ const LevelOne = ({ onGoodJob }) => {
     });
     const data = await response.json()
     console.log(data);
-}
+  }
   // Play good-job audio and stop listening
   const playGoodJobSound = () => {
     if (goodJobAudioRef.current) {
@@ -91,22 +91,23 @@ const LevelOne = ({ onGoodJob }) => {
   }, []);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', padding: '20px', boxSizing: 'border-box' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '50px', boxSizing: 'border-box' }}>
       <button 
         onClick={() => { startStopListening() }} 
         style={{ 
-          padding: '10px 20px', 
+          padding: '15px 30px', 
           marginBottom: '20px', 
-          fontSize: '16px', 
+          fontSize: '18px', 
           cursor: 'pointer', 
           backgroundColor: isListening ? '#ff4d4d' : '#4CAF50', 
           color: 'white', 
           border: 'none', 
-          borderRadius: '5px', 
-          zIndex: 300,
+          borderRadius: '10px', 
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+          transition: 'background-color 0.3s ease',
         }}
       >
-        {isListening ? 'Stop' : 'Start'}
+        {isListening ? 'Stop Listening' : 'Start Listening'}
       </button>
 
       {/* Audio element for "good-job.mp3" */}

@@ -1,8 +1,11 @@
-'use client'; // Ensure this is a client component
+'use client';
+
 import React, { useRef, useState, useEffect } from 'react';
 import LevelTwoWords from './LevelTwoWords';
 import LevelTwoImages from './LevelTwoImages';
 import './page.css'; // Import the CSS file
+import TopBar from '../Topbar';
+import '../Topbar.css'
 
 function Page() {
   const [words, setWords] = useState(['', '', '']);
@@ -23,7 +26,7 @@ function Page() {
   }, []); 
 
   const audioRef = useRef(null);
-  const [isCorrect, setIsCorrect] = useState(false); // Track the correctness state
+  const [isCorrect, setIsCorrect] = useState(false); 
 
   async function add() {
     await fetch('/api/addCoin', {
@@ -47,17 +50,7 @@ function Page() {
         window.location.reload(); // Reload the page after a short delay
       }, 2000); // Add a slight delay for user experience
 
-      var newWords = fetch('/api/leveltwoEndpoint')
-        .then(response => response.json())
-        .then(data => {
-          setWords(data.randomPairs);
-          setLinks(data.links);
-        })
-        .catch(error => console.error('Error fetching new words:', error));
-
-      newWords.then(() => {
-        setIsCorrect(false); // Reset correctness state
-      });
+      
     }
   };
 
@@ -67,6 +60,7 @@ function Page() {
 
   return (
     <div className="page-container">
+      <TopBar />
       <LevelTwoImages className="" links={links} />
       <LevelTwoWords words={words} onCorrectChange={handleCorrectChange} getCorrect={isCorrect} />
       <button onClick={handleSubmit} className='submit-button'>Submit</button>

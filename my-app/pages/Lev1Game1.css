@@ -1,14 +1,13 @@
 .background-container {
     background: url('../public/images/letterABg.png') no-repeat center center fixed;
     background-size: cover;
-    width: 98vw;
+    width: 100vw;
     height: 100vh;
-    position: relative;
     z-index: 1;
+    position: fixed;
     display: flex;
-    justify-content: center;
     align-items: center;
-    overflow: hidden;
+    justify-content: center;
 }
 
 .gold-circle {
@@ -39,16 +38,25 @@
 
 .gold-circle1 {
     position: absolute; /* Absolutely position the gold circle */
-    top: 77%; /* Center vertically */
-    left: 20%; /* Center horizontally */
+    width: 300px;
+    height: 300px;
+    top: 70%; /* Center vertically */
+    left: 15%; /* Center horizontally */
     z-index: 1; /* Ensure it stays behind the letter */
     opacity: 0.94
 }
 
 .gold-circle2 {
     position: absolute; /* Absolutely position the gold circle */
-    top: 77%; /* Center vertically */
-    left: 65%; /* Center horizontally */
+    width: 300px;
+    height: 300px;
+    top: 70%; /* Center vertically */
+    left: 64%; /* Center horizontally */
     z-index: 1; /* Ensure it stays behind the letter */
-    opacity: 0.94
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }

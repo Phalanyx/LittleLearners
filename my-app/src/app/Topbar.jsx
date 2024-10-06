@@ -30,8 +30,12 @@ const TopBar = () => {
       }
     };
 
-    const handleLibraryClick = () =>{
+    const handleLibraryClick = () => {
+      if (window.location.pathname === '/') {
         window.location.href = 'book';
+      } else {
+        window.location.href = '/';
+      }
     };
   
     return (

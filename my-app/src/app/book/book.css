@@ -2,6 +2,7 @@ form {
     max-width: 500px;
     margin: 0 auto;
     padding: 25px;
+    border-radius: 10px;
 }
 
 form div {
@@ -13,23 +14,28 @@ form label {
     margin-bottom: 5px;
     font-weight: bold;
     font-size: 21px;
+    color: white;
+    padding: 10px;
+    margin: 2px;
+    background-color: rgba(66, 36, 198, 0.1);
+    border-radius: 5px;
 }
 
 form input[type="text"],
-form input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    font-size: 20px;
-}
-
+form input[type="number"],
 form select {
     width: 100%;
     padding: 10px;
     border: 1px solid gray;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 21px;
+    background: rgba(255, 255, 255, 0.5); 
+    color: black;
+}
+
+form input[type="text"]::placeholder,
+form input[type="number"]::placeholder {
+    color: #aaa;
 }
 
 form button {
@@ -39,11 +45,14 @@ form button {
     cursor: pointer;
     border: 1px solid gray;
     border-radius: 10px;
+    background: rgba(66, 36, 198, 0.25); 
+    color: white;
 }
 
 form button:hover {
-    border: 1px solid rgb(66, 36, 198);
-    color: black;
+    border: 1px solid rgb(0, 123, 255);
+    background: rgba(0, 123, 255, 0.3); 
+    color: white;
 }
 
 .book {
@@ -51,6 +60,7 @@ form button:hover {
     margin: auto;
     padding: 40px;
     border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8);
     border: 2px solid rgb(44, 155, 192);
 }
 
@@ -70,12 +80,20 @@ form button:hover {
     display: block;
     max-width: 100%;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(207, 17, 17, 0.2);
 }
 
-.book-controls button {
+.book-controls {
+    display: flex;
+    justify-content: start;
+    align-items: center; 
+}
+
+.control-button {
     padding: 10px 20px;
-    margin: 10px;
+    margin: 20px;
     cursor: pointer;
+    height: auto; 
 }
 
 .book-page.flip {
@@ -86,26 +104,29 @@ form button:hover {
     transform: rotateY(0deg);
 }
 
-.close-book-button {
-    color: white; 
+.other-button {
     border: 2px solid lightblue;
+    color: gray;
     border-radius: 5px;
-    padding: 20px 20px; 
+    padding: 10px 20px; 
+    margin-left: 100px;
     font-size: 1.2em; 
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: block;
 }
 
-.close-book-button:hover {
-    background-color: #357ABD; 
+.other-button:hover {
+    border: 1px solid rgb(66, 36, 198);
+    color: black;
 }
 
 .spinner {
-    width: 75px;
-    height: 75px;
+    width: 20px;
+    height: 20px;
     margin: 0 auto;
     padding: 50px;
-    border: 5px solid rgb(134, 128, 128);
+    border: 5px solid rgb(134, 128, 128, 0.5);
     border-radius: 50%;
     border-left-color: rgb(66, 36, 198);
     animation: spin 1s infinite linear;
@@ -114,4 +135,8 @@ form button:hover {
 @keyframes spin {
     100% { transform: rotate(360deg); }
     0% { transform: rotate(0deg); }
+}
+
+body {
+    background-image: url('../images/bg3.png');
 }
