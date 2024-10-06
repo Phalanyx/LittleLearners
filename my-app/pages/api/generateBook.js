@@ -74,8 +74,8 @@ async function GenerateContent(model, preferences) {
             const response = await model.chat.completions.create({
                 model: 'chatgpt-4o-latest',
                 messages: [
-                    { role: 'system', content: 'You are a creative story writer for young children.' },
-                    { role: 'user', content: `Write a short children's story with no title based on the following requirements: ${outline} (Strictly between 100 and 200 words)` },
+                    { role: 'system', content: `You are a children's story writer.` },
+                    { role: 'user', content: `Write a short children's story (no title) based on the following requirements: ${outline} (Strictly between 100 and 200 words)` },
                 ],
                 max_tokens: 250,
                 temperature: creativity,
@@ -101,7 +101,7 @@ async function GenerateImages(model, pages_content) {
         try {
             const response = await model.images.generate({
                 model: 'dall-e-3',
-                prompt: `Generate a cartoon image based on the following prompt: ${page_prompt}`,
+                prompt: `Generate a cartoon image (no text) based on the following prompt: ${page_prompt}`,
                 size: '1024x1024',
                 quality: 'standard',
                 num_images: 1

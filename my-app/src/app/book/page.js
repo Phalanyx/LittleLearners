@@ -17,7 +17,7 @@ export default function Home() {
     main_character: '',
     theme: '',
     story: '',
-    creativity: null,
+    creativity: 0,
   });
 
   // Fetch the book content
@@ -70,6 +70,10 @@ export default function Home() {
       }
     };
 
+    const handleCloseBook = () => {
+      setBookContent(null); 
+    }
+
     const pageContentKey = `Content ${current_page}`;
     const pageImageKey = `Image ${current_page}`;
     
@@ -82,6 +86,9 @@ export default function Home() {
           </button>
           <button onClick={handleNextPage} disabled={current_page >= total_pages}>
             <Image src={next_icon} width={25} height={25} />
+          </button>
+          <button className="close-book-button" onClick={handleCloseBook}>
+            Close Book
           </button>
         </div>  
       
