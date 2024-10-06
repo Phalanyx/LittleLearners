@@ -17,3 +17,8 @@ model Coin {
   id      Int      @id @default(autoincrement())
   amount   Int
 }
+model NewCoin {
+  id      Int      @id @default(autoincrement())
+  name   String
+  amount   Int
+}

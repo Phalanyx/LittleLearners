@@ -4,10 +4,9 @@ import { NextResponse } from 'next/server';
 export async function GET(req) {
     const prisma = new PrismaClient();
     try {
-        const users = await prisma.coin.findUnique({
+        const users = await prisma.NewCoin.findUnique({
             where: { id: 1 },
         });
-        console.log(users);
         return NextResponse.json(users, { status: 200 });
     } catch (error) {
         console.log(error);

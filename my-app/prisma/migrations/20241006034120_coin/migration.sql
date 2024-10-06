@@ -1,0 +1,6 @@
+-- CreateTable
+CREATE TABLE "NewCoin" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "name" TEXT NOT NULL,
+    "amount" INTEGER NOT NULL
+);
