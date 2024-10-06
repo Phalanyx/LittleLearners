@@ -3,7 +3,7 @@ import useSpeech from './UseSpeech';
 
 const LevelOne = ({ onGoodJob }) => {
   const { start, stop, latestWord, isListening } = useSpeech({ continuous: true });
-  
+  const [check, setCheck] = useState(false);
   const goodJobAudioRef = useRef(null);  // Reference to the "good-job" audio
   const tryAgainAudioRef = useRef(null);  // Reference to the "try-again" audio
 
@@ -23,7 +23,17 @@ const LevelOne = ({ onGoodJob }) => {
   const handleAudioEnd = () => {
     start();  // Resume listening after audio ends
   };
-
+  async function add() {
+    const response = await fetch('/api/addCoin', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: 1 }),
+    });
+    const data = await response.json()
+    console.log(data);
+}
   // Play good-job audio and stop listening
   const playGoodJobSound = () => {
     if (goodJobAudioRef.current) {
@@ -49,6 +59,10 @@ const LevelOne = ({ onGoodJob }) => {
 
       // Call the onGoodJob function passed as a prop to change the letter image
       if (onGoodJob) {
+        if (!check) {
+          add();
+          setCheck(true);
+        }
         onGoodJob();
       }
     } else {
