@@ -20,24 +20,6 @@ We built this project using **NextJS** and **React** for both the frontend and b
 
 We also developed an **Adobe Add-on** using **JavaScript**, which allows users to upload avatars via **React's built-in camera library**, offering a smooth, intuitive experience for avatar customization.
 
-## 🚧 Challenges We Faced
-This was our first hackathon experience, and with only 4 hours of sleep each night, we faced many challenges. One of the toughest tasks was working with **Adobe Express**. The process of building an add-on proved to be more complicated than we anticipated. With limited documentation, we had to go through a lot of trial and error to make the playground work with our code. But after hours of hard work, we finally succeeded, which felt like a huge victory! 🎉
-
-At the start, we were _overambitious_. We had grand ideas that quickly became overwhelming. As we went deeper into the project, we had to **re-evaluate** what was realistic within the time constraints. While we scaled back some features, we made sure the final product was polished and practical.
-
-## 🚀 What We Learned
-We gained valuable lessons on the importance of **balancing ambition with practicality**. Though some features had to be cut, the experience taught us to focus on core functionalities and deliver quality. Additionally, we learned how to troubleshoot through trial and error, especially when working with new platforms like **Adobe Express**.
-
-## 🌈 What's Next?
-Our future goals include:
-- **Expanding the game to support multiple languages** to reach a broader audience.
-- **Adding more AI features** to make the app even more personalized and responsive.
-- **Improving accessibility** to better serve students with diverse learning needs.
-
-We believe this tool can be a game-changer for students, particularly those with special needs, offering them the support they deserve on their educational journey. With **literacy rates declining** and children with learning disabilities often lacking access to necessary resources, this app is designed to bridge the gap. 
-
-Education is the foundation of opportunity, and we see this project as a way to give children the tools they need to thrive! 
-
 # Run the development server
 1. Download or clone the repository onto your local device.
 2. Open the terminal and navigate to your project directory:
