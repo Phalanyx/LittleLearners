@@ -1,24 +1,24 @@
 import React from 'react';
-import './level1popup.css'; // Ensure the path is correct
+import './level2popup.css'; // Ensure the path is correct
 import gameImage from '../images/game2.png'; // Path to your image
 import Image from 'next/image';
 
-function Popup({ onClose }) {
+function Popup2({ onClose }) {
     // Function to handle image click
     const handleGameClick = (index) => {
-        if (index === 0) {
+        if (index === 3) {
             // Navigate to /Lev1Game1 when the first image is clicked
-            window.location.href = 'Lev1Game1';
+            window.location.href = 'leveltwo';
         }
     };
 
     return (
-        <div className="popup-overlay" id='popup1'>
+        <div className="popup-overlay" id='popup2'>
             <div className="popup-content">
                 <button className="close-button" onClick={onClose}>
-                    &times; {/* Cross character */}
+                    &times;
                 </button>
-                <h1>Alphabets</h1>
+                <h1>Common Words</h1>
                 <div className="image-grid">
                     {[...Array(15)].map((_, index) => (
                         <div 
@@ -42,4 +42,4 @@ function Popup({ onClose }) {
     );
 }
 
-export default Popup;
+export default Popup2;

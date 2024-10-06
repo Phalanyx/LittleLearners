@@ -1,7 +1,8 @@
 'use client'; // Ensure this is a client component
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import LevelTwoWords from './LevelTwoWords';
 import LevelTwoImages from './LevelTwoImages';
+import './page.css'; // Import the CSS file
 
 function Page() {
   const [words, setWords] = useState(['', '', '']);
@@ -20,15 +21,22 @@ function Page() {
     fetchWords()
     ; 
   }, []); 
+
+  const audioRef = useRef(null);
+
   const [isCorrect, setIsCorrect] = useState(false); // Track the correctness state
+
 
   const handleSubmit = () => {
     if (isCorrect) {
-        var newWords = fetch('/api/leveltwoEndpoint')
-          .then(response => response.json())
-          .then(data => {
-            setWords(data.randomPairs)
-            setLinks(data.links)
+      if (audioRef.current) {
+        audioRef.current.play();
+      }
+      var newWords = fetch('/api/leveltwoEndpoint')
+        .then(response => response.json())
+        .then(data => {
+          setWords(data.randomPairs)
+          setLinks(data.links)
     })
           .catch(error => console.error('Error fetching new words:', error));
         newWords.then((words) => {
@@ -43,14 +51,13 @@ function Page() {
   };
 
   return (
-    <div className="flex flex-col border-2 border-green-500">
+    <div className="page-container">
       <LevelTwoImages className="" links={links}/>
-      <button onClick={handleSubmit}>Submit</button>
       <LevelTwoWords words={words} onCorrectChange={handleCorrectChange} />
-      <div>
-        {isCorrect ? 'Correct!' : 'Not Correct'}
-        {words}
-      </div>
+      <button onClick={handleSubmit} className='submit-button'>Submit</button>
+      <audio ref={audioRef}>
+        <source src="/audio/correct.mp3" type="audio/mp3" />
+      </audio>
     </div>
   );
 }

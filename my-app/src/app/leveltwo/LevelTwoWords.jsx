@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { createSwapy } from 'swapy';
-import './leveltwoWords.css';
+import './LevelTwoWords.css';
 
 const DEFAULT_WORDS = {
   'a': 'apple',
@@ -110,7 +110,7 @@ function LevelTwoImage(props) {
 
   return (
     <div>
-      <div className="container">
+      <div className="container" id='container'>
         <div className="slot a" data-swapy-slot="1">
           {getItemById(slotItems['1'])}
         </div>

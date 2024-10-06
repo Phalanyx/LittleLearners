@@ -21,15 +21,15 @@
   
   .container {
     display: flex;
-    align-self: left;
     flex-direction: row;
-    gap: 5px;
-    width: 500px;
-    max-width: 500px;
+    gap: 40px;
+    width: 300px;
     padding: 10px;
   }
   
-
+  #container {
+    margin-right: 700px;
+  }
   
   .slot {
     background: #111;
@@ -39,12 +39,13 @@
   
   .slot.a {
     flex-basis: 150px;
-    height: 400px;
+    height: 60px;
+    border-radius: 10px;
     
   }
   
   .item {
-    width: 500px;
+    width: 300px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -55,13 +56,14 @@
     user-select: none;
     -webkit-user-select: none;
     position: relative;
+    border-radius: 10px;
   }
   
   .item.a {
-    background: #b95050;
+    background: #b95050dd;
+    border: white solid 2px;
+    border-radius: 10px;
   }
-  
-
   
   [data-swapy-highlighted] {
     background: #444;
@@ -71,9 +73,9 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 20px;
+    width: 300px;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+  
   }
   
   .enable-input {

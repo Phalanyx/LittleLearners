@@ -1,105 +1,100 @@
+/* Background container */
 .background-container {
   background-image: url('./images/bg2.png');
-  background-size: cover; /* Ensures the background covers the entire container */
-  background-position: center; /* Centers the background image */
-  position: relative; /* To enable absolute positioning for child elements */
-  width: 100vw; /* Almost full width of the viewport */
-  height: 96vh; /* Full height of the viewport */
-  z-index: 1; /* Set the stacking context for child elements */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  width: 100vw;
+  height: 96vh;
+  z-index: 1; /* Lower than popups */
 }
 
+/* Leaves */
 .background-container > div {
-  position: absolute; /* Position the leaves on top of the background */
-  z-index: 2; /* Ensure the leaves are on top */
-  top: 0; /* Adjust the position as needed */
+  position: absolute;
+  z-index: 2;
+  top: 0;
   left: 0;
 }
 
+/* Level containers */
+.level1-container,
+.level2-container,
+.level3-container,
+.level4-container,
+.level5-container {
+  position: absolute;
+  z-index: 3; /* Ensures they are above the background but below popups */
+  width: 120px;
+  height: 220px;
+  animation: bounce 2s infinite;
+}
+
 .level1-container {
-  position: absolute; /* Position the level1 image */
-  z-index: 3; /* Ensure it appears above the leaves */
-  margin-top: 530px; /* Initial top position */
-  margin-left: 610px; /* Initial left position */
-  width: 120px; /* Define a width for the level1 image */
-  height: 220px; /* Define a height for the level1 image */
-  
-  /* Add animation */
-  animation: bounce 2s infinite; /* 'bounce' animation, 2 seconds duration, loops infinitely */
+  margin-top: 530px;
+  margin-left: 610px;
 }
 
 .level2-container {
-  position: absolute; /* Position the level1 image */
-  z-index: 3; /* Ensure it appears above the leaves */
-  margin-top: 380px; /* Initial top position */
-  margin-left: 580px; /* Initial left position */
-  width: 120px; /* Define a width for the level1 image */
-  height: 220px; /* Define a height for the level1 image */
-  
-  /* Add animation */
-  animation: bounce 2s infinite; /* 'bounce' animation, 2 seconds duration, loops infinitely */
+  margin-top: 380px;
+  margin-left: 580px;
 }
 
 .level3-container {
-  position: absolute; /* Position the level1 image */
-  z-index: 3; /* Ensure it appears above the leaves */
-  margin-top: 380px; /* Initial top position */
-  margin-left: 770px; /* Initial left position */
-  width: 120px; /* Define a width for the level1 image */
-  height: 220px; /* Define a height for the level1 image */
-  
-  /* Add animation */
-  animation: bounce 2s infinite; /* 'bounce' animation, 2 seconds duration, loops infinitely */
+  margin-top: 380px;
+  margin-left: 770px;
 }
+
 .level4-container {
-  position: absolute; /* Position the level1 image */
-  z-index: 3; /* Ensure it appears above the leaves */
-  margin-top: 270px; /* Initial top position */
-  margin-left: 900px; /* Initial left position */
-  width: 120px; /* Define a width for the level1 image */
-  height: 220px; /* Define a height for the level1 image */
-  
-  /* Add animation */
-  animation: bounce 2s infinite; /* 'bounce' animation, 2 seconds duration, loops infinitely */
+  margin-top: 270px;
+  margin-left: 900px;
 }
 
 .level5-container {
-  position: absolute; /* Position the level1 image */
-  z-index: 3; /* Ensure it appears above the leaves */
-  margin-top: 253px; /* Initial top position */
-  margin-left: 710px; /* Initial left position */
-  width: 120px; /* Define a width for the level1 image */
-  height: 220px; /* Define a height for the level1 image */
-  
-  /* Add animation */
-  animation: bounce 2s infinite; /* 'bounce' animation, 2 seconds duration, loops infinitely */
+  margin-top: 253px;
+  margin-left: 710px;
 }
+
+/* Keyframes for bounce animation */
 @keyframes bounce {
   0%, 100% {
-    transform: translateY(0); /* Starting and ending at the original position */
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-15px); /* Move up by 15px at the midpoint */
+    transform: translateY(-15px);
   }
 }
 
-.stop-bg-music-button {
-  background: rgba(9, 86, 27, 0.9);
-  border: none;
-  border-radius: 20px;
-  position: absolute;  /* or 'fixed' if you want it to stick to the viewport */
-  bottom: 20px;        /* Distance from the bottom of the container or viewport */
-  right: 40px;         /* Distance from the right of the container or viewport */
-  z-index: 1000;       /* Ensure it's on top of other elements */
-  cursor: pointer;
+/* Popup containers */
+.popup-container {
+  position: fixed; /* Ensure the popup covers the entire screen */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Higher z-index to ensure it appears above everything */
 }
 
+/* Music control buttons */
+.stop-bg-music-button,
 .play-bg-music-button {
   background: rgba(9, 86, 27, 0.9);
   border: none;
   border-radius: 20px;
-  position: absolute;  /* or 'fixed' if you want it to stick to the viewport */
-  bottom: 80px;        /* Distance from the bottom of the container or viewport */
-  right: 40px;         /* Distance from the right of the container or viewport */
-  z-index: 1000;       /* Ensure it's on top of other elements */
+  position: fixed;
+  right: 40px;
   cursor: pointer;
+  z-index: 10; /* Buttons are on top but below popups */
+}
+
+.stop-bg-music-button {
+  bottom: 20px;
+}
+
+.play-bg-music-button {
+  bottom: 80px;
 }

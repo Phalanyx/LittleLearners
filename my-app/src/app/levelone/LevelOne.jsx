@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import useSpeech from './UseSpeech';
 
 const LevelOne = ({ onGoodJob }) => {
-  const [textInput, setTextInput] = useState('');
   const { start, stop, latestWord, isListening } = useSpeech({ continuous: true });
   
   const goodJobAudioRef = useRef(null);  // Reference to the "good-job" audio
@@ -44,7 +43,7 @@ const LevelOne = ({ onGoodJob }) => {
   // Check the latest word spoken
   if (latestWord) {
     console.log("Latest word spoken:", latestWord.trim());
-    if (latestWord.trim().toLowerCase() === 'a') {
+    if (latestWord.trim().toLowerCase() === 'a' || latestWord.trim().toLowerCase() === 'hey') {
       console.log("Good job");
       playGoodJobSound();
 
