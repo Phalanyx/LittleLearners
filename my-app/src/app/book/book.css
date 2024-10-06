@@ -86,6 +86,20 @@ form button:hover {
     transform: rotateY(0deg);
 }
 
+.close-book-button {
+    color: white; 
+    border: 2px solid lightblue;
+    border-radius: 5px;
+    padding: 20px 20px; 
+    font-size: 1.2em; 
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close-book-button:hover {
+    background-color: #357ABD; 
+}
+
 .spinner {
     width: 75px;
     height: 75px;
