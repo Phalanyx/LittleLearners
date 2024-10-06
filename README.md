@@ -1,4 +1,4 @@
-# 🌟 Educational Learning App for Youth with Learning Disabilities
+# 🌟 Educational Web App for Youths with Learning Disabilities 🌟
 
 ## 🧠 Inspiration
 Our project is an **_educational learning app_** designed to teach English through a **structured roadmap**, particularly targeting **youth and students with _learning disabilities_**. The app starts with the basics like alphabets and progresses to reading full sentences, breaking down the learning process into manageable levels.
@@ -38,8 +38,12 @@ We believe this tool can be a game-changer for students, particularly those with
 
 Education is the foundation of opportunity, and we see this project as a way to give children the tools they need to thrive! 
 
-
-
 # Run the development server
-npm run dev
-
+1. Download or clone the repository onto your local device.
+2. Open the terminal and navigate to your project directory:
+   ```bash cd my-app```
+3. Install all dependencies:
+   ```bash npm install```
+4. Start the development server:
+   ```bash npm run dev```
+5. Go to [http://localhost:3000/](http://localhost:3000/) to view the web app in action!
