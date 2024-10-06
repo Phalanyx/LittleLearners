@@ -48,7 +48,7 @@ function Page() {
       // Reload the page after actions are done
       setTimeout(() => {
         window.location.reload(); // Reload the page after a short delay
-      }, 2000); // Add a slight delay for user experience
+      }, 3000); // Add a slight delay for user experience
 
       
     }

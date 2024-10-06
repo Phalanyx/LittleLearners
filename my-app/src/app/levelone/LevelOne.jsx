@@ -99,12 +99,9 @@ const LevelOne = ({ onGoodJob }) => {
           marginBottom: '20px', 
           fontSize: '18px', 
           cursor: 'pointer', 
-          backgroundColor: isListening ? '#ff4d4d' : '#4CAF50', 
           color: 'white', 
           border: 'none', 
-          borderRadius: '10px', 
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-          transition: 'background-color 0.3s ease',
+          backgroundColor: 'transparent'
         }}
       >
         {isListening ? 'Stop Listening' : 'Start Listening'}
