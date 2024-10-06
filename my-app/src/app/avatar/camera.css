@@ -1,0 +1,68 @@
+.page {
+    background-image: url('./backgroundcam.png');
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;  /* Aligns items to the top */
+    padding-top: 50px;  /* Adjust this value to control how far down the content is */
+    width: 100vw; 
+    height: 100vh; 
+    flex-direction: column;
+  }
+  
+  .camera {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    right: -460px;
+    height: 80;
+  }
+  
+  video {
+    width: 640px;   /* Medium-sized width */
+    height: 360px;  /* Maintain 16:9 aspect ratio */
+    border: 2px solid #000;
+    background-color: #333;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 30px 40px;
+    background-color: #6200b8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  
+  .hasPhoto {
+    display: block;
+  }
+  
+  .close button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    height: 50px;
+  }
+
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }

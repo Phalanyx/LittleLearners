@@ -12,6 +12,7 @@ import React, { useRef, useState } from "react"; // Import useState here
 import Popup from './Level1PopUp/level1popup.jsx';
 import Popup2 from "./Level2PopUp/level2popup.jsx";
 import TopBar from './Topbar.jsx';
+import camera from './images/capture.png';
 
 function Home() {
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -35,6 +36,10 @@ function Home() {
 
   const stop_bg_music = () => {
     audioRef.current.pause();
+  }
+
+  const cameraPage = () =>{
+    window.location.href = 'avatar';
   }
   
   return (
@@ -94,6 +99,13 @@ function Home() {
           width={50}
           height={50}
         />
+        </button>
+        <button className="camera" onClick={cameraPage}>
+        <Image 
+        src={camera} 
+        width={50} 
+        height={50} 
+        className="transparent-image" />
         </button>
     </div>
   );

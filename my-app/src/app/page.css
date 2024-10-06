@@ -97,7 +97,19 @@
 .play-bg-music-button {
   bottom: 80px;
 }
-
+.camera {
+  position: fixed;
+  bottom: 20px; 
+  left: 20px; 
+  z-index: 5; 
+  width: 150px; 
+  height: auto; 
+  background: rgba(9, 86, 27, 0.9);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 10; /* Buttons are on top but below popups */
+}
 
 body {
   margin: 0;
