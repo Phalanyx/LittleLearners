@@ -6,6 +6,7 @@ import level2 from "./images/level2.png"
 import level3 from "./images/level3.png"
 import level4 from "./images/level4.png"
 import level5 from "./images/level5.png"
+import bookImage from "./images/book.png"
 import Image from 'next/image';
 import React, { useRef, useState } from "react"; // Import useState here
 import Popup from './Level1PopUp/level1popup.jsx';
@@ -28,6 +29,10 @@ function Home() {
 
   const stop_bg_music = () => {
     audioRef.current.pause();
+  }
+
+  const handlelibraryClick = () =>{
+    window.location.href = 'book'
   }
 
   return (
@@ -72,6 +77,13 @@ function Home() {
           alt="Stop Background Music"
           width={50}   // Set a width
           height={50}  // Set a height
+        />
+        </button>
+      <button className='book_button' onClick= {() => handlelibraryClick()}>
+        <Image
+        src={bookImage}
+        width={50}
+        height={50}
         />
       </button>
     </div>
