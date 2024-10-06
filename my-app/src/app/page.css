@@ -3,8 +3,8 @@
   background-size: cover; /* Ensures the background covers the entire container */
   background-position: center; /* Centers the background image */
   position: relative; /* To enable absolute positioning for child elements */
-  width: 100vw; /* Almost full width of the viewport */
-  height: 96vh; /* Full height of the viewport */
+  width: 100vw; 
+  height: 100vh; 
   z-index: 1; /* Set the stacking context for child elements */
 }
 
@@ -102,4 +102,10 @@
   right: 40px;         /* Distance from the right of the container or viewport */
   z-index: 1000;       /* Ensure it's on top of other elements */
   cursor: pointer;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
