@@ -1,33 +1,45 @@
 'use client'; // Ensure this is a client component
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import LevelTwoWords from './LevelTwoWords';
 import LevelTwoImages from './LevelTwoImages';
+import './page.css'; // Import the CSS file
 
 function Page() {
   const [words, setWords] = useState(['', '', '']);
-
+  const [links, setLinks] = useState(['', '', '']);
   useEffect(() => {
     const fetchWords = async () => {
       try {
-        const response = await fetch('/api/leveltwoEndpoint'); // Replace with your actual API endpoint
+        const response = await fetch('/api/leveltwoEndpoint'); 
         const data = await response.json();
-        setWords(Object.values(data)); // Set the words state with the fetched data
+        setWords(data.randomPairs); 
+        setLinks(data.links);
       } catch (error) {
         console.error('Error fetching words:', error);
       }
     };
-    fetchWords(); // Call the fetch function
+    fetchWords()
+    ; 
   }, []); 
+
+  const audioRef = useRef(null);
+
   const [isCorrect, setIsCorrect] = useState(false); // Track the correctness state
+
 
   const handleSubmit = () => {
     if (isCorrect) {
-        var newWords = fetch('/api/leveltwoEndpoint')
-          .then(response => response.json())
-          .then(data => setWords(Object.values(data)))
+      if (audioRef.current) {
+        audioRef.current.play();
+      }
+      var newWords = fetch('/api/leveltwoEndpoint')
+        .then(response => response.json())
+        .then(data => {
+          setWords(data.randomPairs)
+          setLinks(data.links)
+    })
           .catch(error => console.error('Error fetching new words:', error));
         newWords.then((words) => {
-            console.log(words)
             setIsCorrect(false)
         }); // Reset correctness state
     }
@@ -39,13 +51,13 @@ function Page() {
   };
 
   return (
-    <div className="flex flex-col border-2 border-green-500">
-      <LevelTwoImages className=""/>
-      <button onClick={handleSubmit}>Submit</button>
+    <div className="page-container">
+      <LevelTwoImages className="" links={links}/>
       <LevelTwoWords words={words} onCorrectChange={handleCorrectChange} />
-      <div>
-        {isCorrect ? 'Correct!' : 'Not Correct'}
-      </div>
+      <button onClick={handleSubmit} className='submit-button'>Submit</button>
+      <audio ref={audioRef}>
+        <source src="/audio/correct.mp3" type="audio/mp3" />
+      </audio>
     </div>
   );
 }

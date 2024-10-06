@@ -1,14 +1,15 @@
-import React from 'react'
-import './leveltwoImages.css'
+import React from 'react';
+import './LevelTwoImages.css';
+
 function LevelTwoImages(props) {
-    const words = props.words ?? ['apple', 'banana', 'carrot']
+    const links = props.links ?? ['https://img.freepik.com/premium-photo/white-wall-with-white-background-that-says-word-it_994023-371201.jpg', 'https://img.freepik.com/premium-photo/white-wall-with-white-background-that-says-word-it_994023-371201.jpg', 'https://img.freepik.com/premium-photo/white-wall-with-white-background-that-says-word-it_994023-371201.jpg']
     
 return (
     <div id="imageLst">
-        {words.map((word) => {
+        {links.map((link) => {
             return (
-                <div key={word}>
-                    <img src={'https://freepng.com/uploads/images/202302/ree-vector-red-apple-png_1020x.jpg'} alt={word} />
+                <div className='image-container'>
+                    <img  src={link} className='image-item' />
                 </div>
             )
         })}
@@ -16,4 +17,4 @@ return (
 )
 }
 
-export default LevelTwoImages
+export default LevelTwoImages;
