@@ -31,27 +31,28 @@ const TopBar = () => {
     };
 
     const handleLibraryClick = () =>{
-        window.location.href = 'book'
-    }
+        window.location.href = 'book';
+    };
   
     return (
       <div className="topbar">
-        <div className="topbar-left">
+        <div className="topbar-item">
           <Image src={avatar} width={100} height={100} className="topbar-avatar" />
           <span className="topbar-user">{data.name}</span> 
         </div>
-  
-        <button className="book_button" onClick={handleLibraryClick}>
-          <Image src={bookImage} width={125} height={125} className="transparent-image" />
-        </button>
-  
-        <div className="topbar-right">
-          <span className="topbar-coins">Coins: ${data.amount}</span> 
+
+        <div className="topbar-item">
+          <button className="book_button" onClick={handleLibraryClick}>
+            <Image src={bookImage} width={125} height={125} className="transparent-image" />
+          </button>
+        </div>
+
+        <div className="topbar-item">
           <Image src={piggyBank} width={100} height={100} className="topbar-piggybank" />
+          <span className="topbar-coins">Coins: ${data.amount}</span> 
         </div>
       </div>
     );
-
 };
   
 export default TopBar;

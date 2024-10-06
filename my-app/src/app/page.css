@@ -80,12 +80,12 @@
 
 /* Music control buttons */
 .stop-bg-music-button,
-.play-bg-music-button {
-  background: rgba(9, 86, 27, 0.9);
+.play-bg-music-button, .camera {
+  background: rgba(255, 255, 255, 0.772);
   border: none;
   border-radius: 20px;
   position: fixed;
-  right: 40px;
+  right: 20px;
   cursor: pointer;
   z-index: 10; /* Buttons are on top but below popups */
 }
@@ -95,20 +95,11 @@
 }
 
 .play-bg-music-button {
-  bottom: 80px;
+  bottom: 90px;
 }
+
 .camera {
-  position: fixed;
-  bottom: 20px; 
-  left: 20px; 
-  z-index: 5; 
-  width: 150px; 
-  height: auto; 
-  background: rgba(9, 86, 27, 0.9);
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  z-index: 10; /* Buttons are on top but below popups */
+  bottom: 160px;
 }
 
 body {

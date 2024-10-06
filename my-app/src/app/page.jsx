@@ -88,23 +88,23 @@ function Home() {
         <Image 
           src='/images/play_bg_music.png'  // Use absolute path starting from /public
           alt="Play Background Music"
-          width={50}
-          height={50}
+          width={40}
+          height={40}
         />
       </button>
       <button className='stop-bg-music-button' onClick={stop_bg_music}>
         <Image 
           src='/images/stop_bg_music.png'  // Use absolute path starting from /public
           alt="Stop Background Music"
-          width={50}
-          height={50}
+          width={40}
+          height={40}
         />
         </button>
         <button className="camera" onClick={cameraPage}>
         <Image 
         src={camera} 
-        width={50} 
-        height={50} 
+        width={40} 
+        height={40} 
         className="transparent-image" />
         </button>
     </div>
