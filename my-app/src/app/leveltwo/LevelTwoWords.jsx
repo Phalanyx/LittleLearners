@@ -8,6 +8,18 @@ const DEFAULT_WORDS = {
   'b': 'banana',
   'c': 'carrot',
 };
+function shuffleObject(obj) {
+  // Convert the object into an array of key-value pairs
+  const entries = Object.entries(obj);
+  
+  // Shuffle the array of entries
+  const shuffledEntries = entries.sort(() => 0.5 - Math.random());
+
+  // Convert the shuffled array back into an object
+  const shuffledObj = Object.fromEntries(shuffledEntries);
+
+  return shuffledObj;
+}
 
 const DEFAULT = {
   '1': 'a',
@@ -15,10 +27,11 @@ const DEFAULT = {
   '3': 'd',
 };
 
+
 const CORRECT = {
   '1': 'a',
-  '2': 'd',
-  '3': 'c',
+  '2': 'c',
+  '3': 'd',
 };
 
 function A() {
@@ -67,7 +80,6 @@ function LevelTwoImage(props) {
     DEFAULT_WORDS['b'] = props.words[1];
     DEFAULT_WORDS['c'] = props.words[2];
   }
-
   const slotItems = DEFAULT;
 
   useEffect(() => {

@@ -5,18 +5,20 @@ import LevelTwoImages from './LevelTwoImages';
 
 function Page() {
   const [words, setWords] = useState(['', '', '']);
-
+  const [links, setLinks] = useState(['', '', '']);
   useEffect(() => {
     const fetchWords = async () => {
       try {
-        const response = await fetch('/api/leveltwoEndpoint'); // Replace with your actual API endpoint
+        const response = await fetch('/api/leveltwoEndpoint'); 
         const data = await response.json();
-        setWords(Object.values(data)); // Set the words state with the fetched data
+        setWords(data.randomPairs); 
+        setLinks(data.links);
       } catch (error) {
         console.error('Error fetching words:', error);
       }
     };
-    fetchWords(); // Call the fetch function
+    fetchWords()
+    ; 
   }, []); 
   const [isCorrect, setIsCorrect] = useState(false); // Track the correctness state
 
@@ -24,10 +26,12 @@ function Page() {
     if (isCorrect) {
         var newWords = fetch('/api/leveltwoEndpoint')
           .then(response => response.json())
-          .then(data => setWords(Object.values(data)))
+          .then(data => {
+            setWords(data.randomPairs)
+            setLinks(data.links)
+    })
           .catch(error => console.error('Error fetching new words:', error));
         newWords.then((words) => {
-            console.log(words)
             setIsCorrect(false)
         }); // Reset correctness state
     }
@@ -40,11 +44,12 @@ function Page() {
 
   return (
     <div className="flex flex-col border-2 border-green-500">
-      <LevelTwoImages className=""/>
+      <LevelTwoImages className="" links={links}/>
       <button onClick={handleSubmit}>Submit</button>
       <LevelTwoWords words={words} onCorrectChange={handleCorrectChange} />
       <div>
         {isCorrect ? 'Correct!' : 'Not Correct'}
+        {words}
       </div>
     </div>
   );
