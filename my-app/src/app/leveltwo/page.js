@@ -7,6 +7,7 @@ import './page.css'; // Import the CSS file
 function Page() {
   const [words, setWords] = useState(['', '', '']);
   const [links, setLinks] = useState(['', '', '']);
+  
   useEffect(() => {
     const fetchWords = async () => {
       try {
@@ -18,55 +19,56 @@ function Page() {
         console.error('Error fetching words:', error);
       }
     };
-    fetchWords()
-    ; 
+    fetchWords(); 
   }, []); 
 
   const audioRef = useRef(null);
-
   const [isCorrect, setIsCorrect] = useState(false); // Track the correctness state
 
-
   async function add() {
-    const response = await fetch('/api/addCoin', {
+    await fetch('/api/addCoin', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({ id: 1 }),
     });
-}
+  }
 
   const handleSubmit = () => {
     if (isCorrect) {
       if (audioRef.current) {
-        audioRef.current.play();
+        audioRef.current.play(); // Play audio
       }
-      add();
+      add(); // Perform the POST request
+
+      // Reload the page after actions are done
+      setTimeout(() => {
+        window.location.reload(); // Reload the page after a short delay
+      }, 2000); // Add a slight delay for user experience
+
       var newWords = fetch('/api/leveltwoEndpoint')
         .then(response => response.json())
         .then(data => {
-          setWords(data.randomPairs)
-          setLinks(data.links)
-    })
-          .catch(error => console.error('Error fetching new words:', error));
-        newWords.then((words) => {
-            setIsCorrect(false)
-        }); // Reset correctness state
+          setWords(data.randomPairs);
+          setLinks(data.links);
+        })
+        .catch(error => console.error('Error fetching new words:', error));
+
+      newWords.then(() => {
+        setIsCorrect(false); // Reset correctness state
+      });
     }
-    
   };
 
   const handleCorrectChange = (correct) => {
     setIsCorrect(correct); // Update the correctness state
   };
 
-
-
   return (
     <div className="page-container">
-      <LevelTwoImages className="" links={links}/>
-      <LevelTwoWords words={words} onCorrectChange={handleCorrectChange} />
+      <LevelTwoImages className="" links={links} />
+      <LevelTwoWords words={words} onCorrectChange={handleCorrectChange} getCorrect={isCorrect} />
       <button onClick={handleSubmit} className='submit-button'>Submit</button>
       <audio ref={audioRef}>
         <source src="/audio/correct.mp3" type="audio/mp3" />
