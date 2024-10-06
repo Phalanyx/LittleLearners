@@ -1,7 +1,7 @@
-"use client"; // Ensure client-side rendering
+"use client"; 
+
 import Leaves from "./Leaves/Leaves.jsx";
 import "./page.css";
-import bookImage from "./images/book.png"
 import level1 from "./images/level1.png";
 import level2 from "./images/level2.png";
 import level3 from "./images/level3.png";
@@ -36,13 +36,10 @@ function Home() {
   const stop_bg_music = () => {
     audioRef.current.pause();
   }
-
-  const handlelibraryClick = () =>{
-    window.location.href = 'book'
-  }
-
+  
   return (
     <div className="background-container">
+      <TopBar />
       <Leaves />
       <div className="level1-container">
         <Image 
@@ -98,20 +95,6 @@ function Home() {
           height={50}
         />
         </button>
-      <button className='book_button' onClick= {() => handlelibraryClick()}>
-        <Image
-        src={bookImage}
-        width={50}
-        height={50}
-        />
-        </button>
-      <button className='book_button' onClick= {() => handlelibraryClick()}>
-        <Image
-        src={bookImage}
-        width={50}
-        height={50}
-        />
-      </button>
     </div>
   );
 }
