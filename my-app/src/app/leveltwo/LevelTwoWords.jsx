@@ -76,9 +76,12 @@ function LevelTwoImage(props) {
   const [correct, setCorrect] = useState(false);
 
   if (props.words) {
-    DEFAULT_WORDS['a'] = props.words[0];
+    DEFAULT_WORDS['a'] = props.words[2];
     DEFAULT_WORDS['b'] = props.words[1];
-    DEFAULT_WORDS['c'] = props.words[2];
+    DEFAULT_WORDS['c'] = props.words[0];
+    CORRECT['1'] = 'd'
+    CORRECT['2'] = 'c'
+    CORRECT['3'] = 'a'
   }
   const slotItems = DEFAULT;
 
